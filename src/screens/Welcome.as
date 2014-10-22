@@ -1,5 +1,7 @@
 package screens
 {
+	import com.greensock.TweenLite;
+	
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -59,6 +61,15 @@ package screens
 			
 			hero.x = -hero.width;
 			hero.y = 100;
+			
+			TweenLite.to(hero, 2, {x:80});
+			
+			this.addEventListener(Event.ENTER_FRAME, heroAnimation);
+		}
+		
+		private function heroAnimation(event:Event):void
+		{
+			var currentDate
 		}
 	}
 }
