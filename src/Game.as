@@ -20,7 +20,7 @@ package
 			trace ("starling framework initialized!");
 			
 			screenWelcome = new Welcome();
-			
+			this.addChild(screenWelcome);
 		}
 	}
 }
