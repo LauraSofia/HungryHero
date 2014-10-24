@@ -62,14 +62,17 @@ package screens
 			hero.x = -hero.width;
 			hero.y = 100;
 			
-			TweenLite.to(hero, 2, {x:80});
+			TweenLite.to(hero, 2, {x: 80});
 			
 			this.addEventListener(Event.ENTER_FRAME, heroAnimation);
 		}
 		
 		private function heroAnimation(event:Event):void
 		{
-			var currentDate
+			var currentDate:Date = new Date();
+			hero.y = 100 + (Math.cos(currentDate.getTime() * 0.002) * 25);
+			playBtn.y = 260 + (Math.cos(currentDate.getTime() * 0.002) * 10);
+			aboutBtn.y = 380 + (Math.cos(currentDate.getTime() * 0.002) * 10);
 		}
 	}
 }
