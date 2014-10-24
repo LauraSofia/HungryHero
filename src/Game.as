@@ -1,5 +1,7 @@
 package
 {
+	import events.NavigationEvent;
+	
 	import screens.Welcome;
 	
 	import starling.display.Sprite;
@@ -19,9 +21,16 @@ package
 		{
 			trace ("starling framework initialized!");
 			
+			this.addEventListener(events.NavigationEvent.CHANGE_SCREEN, onChangeScreen);
+			
 			screenWelcome = new Welcome();
 			this.addChild(screenWelcome);
 			screenWelcome.initialize();
+		}
+		
+		private function onChangeScreen():void
+		{
+			
 		}
 	}
 }
