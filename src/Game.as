@@ -2,6 +2,7 @@ package
 {
 	import events.NavigationEvent;
 	
+	import screens.InAbout;
 	import screens.InGame;
 	import screens.Welcome;
 	
@@ -11,7 +12,8 @@ package
 	public class Game extends Sprite
 	{
 		private var screenWelcome:Welcome;
-		private var screenInGame:InGame
+		private var screenInGame:InGame;
+		private var screenInAbout:InAbout;
 		
 		public function Game()
 		{
@@ -29,6 +31,10 @@ package
 			screenInGame.disposeTemporarily();
 			this.addChild(screenInGame);
 			
+			screenInAbout = new InAbout();
+			screenInAbout.disposeTemporarily();
+			this.addChild(screenInAbout);
+			
 			screenWelcome = new Welcome();
 			this.addChild(screenWelcome);
 			screenWelcome.initialize();
@@ -41,6 +47,16 @@ package
 				case "play":
 					screenWelcome.disposeTemporarily();
 					screenInGame.initialize();
+					break;
+				
+				case "about":
+					screenWelcome.disposeTemporarily();
+					screenInAbout.initialize();
+					break;
+					
+				case "back":
+					screenInAbout.disposeTemporarily();
+					screenWelcome.initialize();
 					break;
 			}
 		}

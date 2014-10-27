@@ -66,6 +66,10 @@ package screens
 			{
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, {id: "play"}, true));
 			}
+			else if ((buttonClicked as Button) == aboutBtn)
+			{
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, {id: "about"}, true));
+			}
 		}
 		
 		public function disposeTemporarily():void
