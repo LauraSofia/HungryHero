@@ -68,6 +68,13 @@ package screens
 			}
 		}
 		
+		public function disposeTemporarily():void
+		{
+			this.visible = false;
+			
+			if (this.hasEventListener(Event.ENTER_FRAME)) this.removeEventListener(Event.ENTER_FRAME, heroAnimation);
+		}
+		
 		public function initialize():void
 		{
 			this.visible = true;
