@@ -6,12 +6,19 @@ package screens
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.text.TextField;
 	
 	public class InAbout extends Sprite
 	{
 		private var bg:Image;
+		private var title:Image;
 		
 		private var backBtn:Button;
+		
+		private var hsLogo:Image;
+		private var sLogo:Image;
+		
+		private var text:TextField;
 		
 		public function InAbout()
 		{
@@ -36,6 +43,25 @@ package screens
 			this.addChild(backBtn);
 			
 			this.addEventListener(Event.TRIGGERED, onBackClick);
+			
+			hsLogo = new Image(Assets.getAtlas().getTexture("about_hsharmaLogo"));
+			hsLogo.x = 30;
+			hsLogo.y = 390;
+			this.addChild(hsLogo);
+			
+			sLogo = new Image(Assets.getAtlas().getTexture("about_starlingLogo"));
+			sLogo.x = 280;
+			sLogo.y = 390;
+			this.addChild(sLogo);
+			
+			title = new Image(Assets.getAtlas().getTexture("welcome_title"));
+			title.x = 440;
+			title.y = 20;
+			this.addChild(title);
+			
+			text = new TextField(200, 200, "Hungry Hero", "Arial", 12);
+			this.addChild(text);
+			
 		}
 		
 		private function onBackClick(event:Event):void
