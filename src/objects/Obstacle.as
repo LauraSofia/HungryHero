@@ -33,6 +33,69 @@ package objects
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}
 		
+		public function get speed():int
+		{
+			return _speed;
+		}
+
+		public function set speed(value:int):void
+		{
+			_speed = value;
+		}
+
+		public function get distance():int
+		{
+			return _distance;
+		}
+
+		public function set distance(value:int):void
+		{
+			_distance = value;
+		}
+
+		public function get position():String
+		{
+			return _position;
+		}
+
+		public function set position(value:String):void
+		{
+			_position = value;
+		}
+
+		public function get alreadyHit():Boolean
+		{
+			return _alreadyHit;
+		}
+
+		public function set alreadyHit(value:Boolean):void
+		{
+			_alreadyHit = value;
+			
+			if (value)
+			{
+				obstacleCrashImage.visible = true;
+				if (_type == 4) obstacleAnimation.visible = false;
+				else obstacleImage.visible = false;
+			}
+		}
+
+		public function get watchOut():Boolean
+		{
+			return _watchOut;
+		}
+
+		public function set watchOut(value:Boolean):void
+		{
+			_watchOut = value;
+			
+			if (watchOutAnimation)
+			{
+				if (value) watchOutAnimation.visible = true;
+				else watchOutAnimation.visible = false;
+			}
+		}
+
 		private function onAddedToStage(event:Event):void
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
@@ -52,6 +115,12 @@ package objects
 				watchOutAnimation.x = -watchOutAnimation.texture.width;
 				watchOutAnimation.y = obstacleAnimation.y + (obstacleAnimation.texture.height * 0.5) - (watchOutAnimation.texture.height * 0.5);
 			}
+			else
+			{
+				watchOutAnimation.x = -watchOutAnimation.texture.width;
+				watchOutAnimation.y = obstacleImage.y + (obstacleImage.texture.height * 0.5) - (watchOutAnimation.texture.height * 0.5);
+			}
+			this.addChild(watchOutAnimation);
 		}
 		
 		private function createObstacleCrashArt():void
