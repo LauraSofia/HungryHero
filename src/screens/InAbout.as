@@ -59,7 +59,7 @@ package screens
 			title.y = 20;
 			this.addChild(title);
 			
-			text = new TextField(200, 200, "Hungry Hero", "Arial", 12);
+			text = new TextField(450, 450, "Tämä peli on koottu\nHemanth Sharman opetusvideon avulla.\nHän on suunnitellut pelin\nja tehnyt sen grafiikat.\nVideon avulla tein tähän peliin koodit.\n\nLaura", "Arial", 12);
 			this.addChild(text);
 			
 		}
